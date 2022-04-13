@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos produits - Nom du site{% endblock %}
+
+{% block content %}
+<h1>Nos produits</h1>
+
+    <div class="row">
+    {% for product in products %}
+        <div class="col-md-4">
+            <div class="product-item text-center">
+                <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
+                <h5>{{ product.name }}</h5>
+                <span>{{ product.subtitle }}</span>
+                {{ product.price }}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
