@@ -5,14 +5,14 @@
 {% block content %}
 <h1>Nos produits</h1>
 
-    <div class="row">
+    <div class="row product-container">
     {% for product in products %}
         <div class="col-md-4">
             <div class="product-item text-center">
                 <img src="/uploads/{{ product.illustration }}" alt="{{ product.name }}" class="img-fluid">
                 <h5>{{ product.name }}</h5>
-                <span>{{ product.subtitle }}</span>
-                {{ product.price }}
+                <span class="product-subtitle">{{ product.subtitle }}</span>
+                <span class="product-price">{{ (product.price / 100)|number_format(2, ',', '.') }} €</span>
             </div>
         </div>
     {% endfor %}
