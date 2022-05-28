@@ -8,6 +8,7 @@
     width : 100%;
     background-color : #dfeaff;
     padding-top: 1.5rem;
+    margin-top : 3rem;
 }
 h5{
     text-transform : uppercase;
@@ -31,4 +32,8 @@ h5{
 }
 .product-page-price{
     font-size : 1.3rem;
+}
+.cart-icon{
+    height : 1.1rem;
+    padding-left : 1rem;
 }
