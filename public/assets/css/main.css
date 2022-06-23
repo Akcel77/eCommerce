@@ -6,9 +6,10 @@
     position : fixed;
     bottom: 0;
     width : 100%;
-    background-color : #dfeaff;
+    background-color : #17a2b8;
     padding-top: 1.5rem;
     margin-top : 3rem;
+    color: #fff;
 }
 h5{
     text-transform : uppercase;
@@ -36,4 +37,9 @@ h5{
 .cart-icon{
     height : 1.1rem;
     padding-left : 1rem;
+}
+
+.block-small{
+    max-width : 60%;
+    margin : 0 auto;
 }
