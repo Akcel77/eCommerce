@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes commandes - Nom du site{% endblock %}
+
+{% block content %}
+
+    <h1>Mes commandes</h1>
+
+    <p>
+        Bienvenue {{ app.user.firstname }} dans votre compte, gestion des commandes
+        <br>
+        C'est dans cet espace que vous allez pouvoir gérer toutes vos commandes.
+        <a href="{{ path('account') }}">Retour</a>
+
+    </p>
+    {% if orders|length == 0  %}
+        <hr>
+        <p>Vous n'avez pas encore passé de commandes dans votre compte client. </p>
+    {% else %}
+        <table class="table mt-4">
+            <thead>
+            <tr>
+                <th scope="col">Passée le</th>
+                <th scope="col">Référence</th>
+                <th scope="col">Produit(s)</th>
+                <th scope="col">Total</th>
+                <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td><span class="badge badge-secondary">{{ order.createdAt|date('d/m/Y') }}</span></td>
+                        <td>{{ order.reference }}</td>
+                        <td>{{ order.orderDetails|length }}</td>
+                        <td>{{ ((order.getTotal + order.carrierPrice) / 100)|number_format(2, ',','.') }} €</td>
+                        <td>
+                            <a href="{{ path('account_order_show', {'reference' : order.reference}) }}" class="text-right">Voir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    {% endif %}
+
+{% endblock %}
+
