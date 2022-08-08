@@ -5,6 +5,13 @@
 {% block content %}
     <h1>Inscription</h1>
 
+    {% if notification %}
+        <div class="alert alert-success">
+            {{ notification }}
+        </div>
+        <hr>
+    {% endif %}
+
     {{ form(form) }}
 
 {% endblock %}
