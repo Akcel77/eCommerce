@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Classe\Cart;
+use App\Classe\Mail;
 use App\Entity\Order;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -40,6 +41,10 @@ class OrderSuccessController extends AbstractController
             $order->setIsPaid(1);
             $this->entityManager->flush();
             //Envoyer un email a notre client pour lui confirmer la commande
+
+            $mail = new Mail();
+            $content = "<br> Bonjour " .$order->getUser()->getFirstName(). " <br> Merci pour votre commande <br>";
+            $mail->send($order->getUser()->getEmail(), $order->getUser()->getFirstName(), 'Votre commande est bien validee', $content);
         }
 
         //Afficher les quelques informations de la commande de l'utilisateur
