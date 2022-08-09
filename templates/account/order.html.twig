@@ -21,7 +21,7 @@
             <thead>
             <tr>
                 <th scope="col">Passée le</th>
-                <th scope="col">Référence</th>
+                <th scope="col">Statut</th>
                 <th scope="col">Produit(s)</th>
                 <th scope="col">Total</th>
                 <th scope="col"></th>
@@ -32,6 +32,15 @@
                     <tr>
                         <td><span class="badge badge-secondary">{{ order.createdAt|date('d/m/Y') }}</span></td>
                         <td>{{ order.reference }}</td>
+                        <td>
+                            {% if order.state == 1 %}
+                                <span class="badge badge-success">Payement accepté</span>
+                            {% elseif order.state == 2 %}
+                                <span class="badge badge-primary">Prépartion en cours</span>
+                            {% elseif order.state == 3 %}
+                                <span class="badge badge-info">Livraison en cours</span>
+                            {% endif %}
+                        </td>
                         <td>{{ order.orderDetails|length }}</td>
                         <td>{{ ((order.getTotal + order.carrierPrice) / 100)|number_format(2, ',','.') }} €</td>
                         <td>
