@@ -12,6 +12,15 @@
     <hr>
 
     <strong> Commande passée le : </strong>{{ order.createdAt|date('d/m/Y') }}<br>
+    <strong>Statut de la commande : </strong>
+        {% if order.state == 1 %}
+            <span class="badge badge-success">Payement accepté</span>
+        {% elseif order.state == 2 %}
+            <span class="badge badge-primary">Prépartion en cours</span>
+        {% elseif order.state == 3 %}
+            <span class="badge badge-info">Livraison en cours</span>
+        {% endif %}
+    <br>
     <strong>Référence : </strong><small> {{ order.reference }}</small><br>
     <strong>Transporteur : </strong> {{ order.carrierName }}<br>
     <strong>Détail de la commande :</strong> <br>
