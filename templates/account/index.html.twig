@@ -9,7 +9,35 @@
         C'est dans cet espace que vous allez pouvoir gerer toutes vos informations personnelles.
         <hr>
     </p>
-    - <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br/>
-    - <a href="{{ path('account_address') }}">Gérer mes adresses</a><br>
-    - <a href="{{ path('account_order') }}">Mes commandes</a>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_password') }}">
+                    <img src="{{ asset('assets/img/padlock.png') }}" class="icon-account"  alt="Modifier mon mot de passe"><br>Modifier mon mot de passe
+                </a><br/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_address') }}">
+                    <img src="{{ asset('assets/img/address.png') }}" class="icon-account" alt="Gerer mes adresses"><br>
+                    Gérer mes adresses
+                </a><br>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_order') }}">
+                    <img src="{{ asset('assets/img/purchase.png') }}" class="icon-account"  alt="Mes commandes"><br>
+                    Mes commandes
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
 {% endblock %}
